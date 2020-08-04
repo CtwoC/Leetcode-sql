@@ -1,3 +1,14 @@
+-- 182. Duplicate Emails
+-- Easy
+
+-- 463
+
+-- 25
+
+-- Add to List
+
+-- Share
+-- SQL Schema
 -- Write a SQL query to find all duplicate emails in a table named Person.
 
 -- +----+---------+
@@ -14,13 +25,11 @@
 -- +---------+
 -- | a@b.com |
 -- +---------+
-# Write your MySQL query statement below
-SELECT Email
-FROM
-(
-    SELECT Email, COUNT(Email) as Number
-    FROM Person
-    GROUP BY Email) as statistic
-WHERE Number >1
 
-#TIP: Use COUNT and GROUP BY
+# Write your MySQL query statement below
+SELECT a.Email
+FROM 
+Person as a,
+Person as b
+WHERE a.Email = b.Email
+AND a.Id > b.Id
